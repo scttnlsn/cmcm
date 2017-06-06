@@ -93,14 +93,14 @@ void blink_task(void) {
 int main(void) {
   // ... harware initialization, etc.
 
-  cmcm_task_create(blink_task);
+  cmcm_create_task(blink_task);
   cmcm_yield(); // passes control to CMCM
 
   return 0;
 }
 ```
 
-Tasks can loop forever or eventually return.  If a task returns then its stack space becomes available for another task to be dynamically created via `cmcm_task_create`.  Notice that you need to explicitly yield to CMCM at the end of your `main` function.  After this initial yield, control will never return to your `main` function so all remaining execution needs to be handled by tasks.
+Tasks can loop forever or eventually return.  If a task returns then its stack space becomes available for another task to be dynamically created via `cmcm_create_task`.  Notice that you need to explicitly yield to CMCM at the end of your `main` function.  After this initial yield, control will never return to your `main` function so all remaining execution needs to be handled by tasks.
 
 ## Synchronization
 
