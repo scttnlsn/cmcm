@@ -91,7 +91,7 @@ void blink_task(void) {
 }
 
 int main(void) {
-  // ... harware initialization, etc.
+  // ... hardware initialization, etc.
 
   cmcm_create_task(blink_task);
   cmcm_yield(); // passes control to CMCM
